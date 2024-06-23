@@ -1,0 +1,93 @@
+//Workshop 1: การตรวจสอบเลขคู่หรือเลขคี่
+//คำแนะนำ:
+
+//สร้างตัวแปรเก็บค่าเลขใดเลขหนึ่ง
+//ใช้คำสั่ง if-else เพื่อตรวจสอบว่าเลขนั้นเป็นเลขคู่หรือเลขคี่
+//พิมพ์ข้อความที่เหมาะสมออกมา
+//ตัวอย่างโค้ด:
+
+local number = 7
+
+if number % 2 == 0 then
+    print(number .. " is an even number.")
+else
+    print(number .. " is an odd number.")
+end
+
+//Workshop 2: การตรวจสอบอายุเพื่อกำหนดสิทธิ์การเข้าใช้
+//คำแนะนำ:
+
+//สร้างตัวแปรเก็บค่าอายุของผู้ใช้งาน
+//ใช้คำสั่ง if-elseif-else เพื่อตรวจสอบอายุและกำหนดสิทธิ์การเข้าใช้ตามกลุ่มอายุ
+//พิมพ์ข้อความที่เหมาะสมออกมา
+//ตัวอย่างโค้ด:
+
+local age = 18
+
+if age < 13 then
+    print("You are a child and cannot access this content.")
+elseif age < 18 then
+    print("You are a teenager and can access limited content.")
+else
+    print("You are an adult and have full access.")
+end
+
+//Workshop 3: การตรวจสอบระดับคะแนนเพื่อกำหนดเกรด
+//คำแนะนำ:
+
+//สร้างตัวแปรเก็บค่าคะแนน
+//ใช้คำสั่ง if-elseif-else เพื่อตรวจสอบคะแนนและกำหนดเกรด
+//พิมพ์ข้อความที่เหมาะสมออกมา
+//ตัวอย่างโค้ด:
+
+local score = 85
+
+if score >= 90 then
+    print("Grade: A")
+elseif score >= 80 then
+    print("Grade: B")
+elseif score >= 70 then
+    print("Grade: C")
+elseif score >= 60 then
+    print("Grade: D")
+else
+    print("Grade: F")
+end
+
+//Workshop 4: การตรวจสอบระดับสุขภาพของผู้เล่นในเกม
+//คำแนะนำ:
+
+//สร้างตัวแปรเก็บค่าระดับสุขภาพของผู้เล่น
+//ใช้คำสั่ง if-elseif-else เพื่อตรวจสอบระดับสุขภาพและพิมพ์ข้อความที่เหมาะสมออกมา
+//ตัวอย่างโค้ด:
+
+local health = 45
+
+if health > 80 then
+    print("You are in great health!")
+elseif health > 50 then
+    print("You are in good health.")
+elseif health > 20 then
+    print("You are in poor health.")
+else
+    print("You are in critical health!")
+end
+
+//Workshop 5: การตรวจสอบเวลาของวันและแสดงข้อความที่เหมาะสม
+//คำแนะนำ:
+
+//สร้างตัวแปรเก็บค่าชั่วโมงของวัน (เช่น ชั่วโมงที่ 24 ชั่วโมง)
+//ใช้คำสั่ง if-elseif-else เพื่อตรวจสอบช่วงเวลาของวันและพิมพ์ข้อความที่เหมาะสมออกมา
+//ตัวอย่างโค้ด:
+
+local hour = 14
+
+if hour >= 5 and hour < 12 then
+    print("Good Morning!")
+elseif hour >= 12 and hour < 18 then
+    print("Good Afternoon!")
+elseif hour >= 18 and hour < 21 then
+    print("Good Evening!")
+else
+    print("Good Night!")
+end
