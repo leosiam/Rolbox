@@ -1,0 +1,88 @@
+//การใช้งานเงื่อนไข (Conditions) ใน Lua
+//1. คำสั่ง if
+//คำสั่ง if ใช้เพื่อตรวจสอบเงื่อนไข ถ้าเงื่อนไขเป็นจริง (true) ก็จะทำงานตามคำสั่งที่กำหนดไว้
+//
+//ตัวอย่าง:
+
+================================================================================
+local score = 85
+
+if score >= 50 then
+    print("You passed!")
+end
+
+//ในตัวอย่างนี้ ถ้าคะแนน (score) มากกว่าหรือเท่ากับ 50 จะพิมพ์ข้อความ "You passed!"
+
+//2. คำสั่ง if-else
+//คำสั่ง if-else ใช้เพื่อตรวจสอบเงื่อนไขและทำงานตามคำสั่งที่กำหนดไว้ ถ้าเงื่อนไขไม่เป็นจริง (false) ก็จะทำงานตามคำสั่งในส่วน else
+
+//ตัวอย่าง:
+
+local score = 40
+
+if score >= 50 then
+    print("You passed!")
+else
+    print("You failed!")
+end
+
+//ในตัวอย่างนี้ ถ้าคะแนนมากกว่าหรือเท่ากับ 50 จะพิมพ์ข้อความ "You passed!" แต่ถ้าคะแนนน้อยกว่า 50 จะพิมพ์ข้อความ "You failed!"
+
+//3. คำสั่ง if-elseif-else
+//คำสั่ง if-elseif-else ใช้เพื่อตรวจสอบหลายเงื่อนไข โดยจะทำงานตามคำสั่งที่ตรงกับเงื่อนไขแรกที่เป็นจริง
+
+//ตัวอย่าง:
+
+local score = 70
+
+if score >= 90 then
+    print("Grade A")
+elseif score >= 80 then
+    print("Grade B")
+elseif score >= 70 then
+    print("Grade C")
+else
+    print("Grade F")
+end
+
+//ในตัวอย่างนี้ จะตรวจสอบคะแนนตามลำดับ ถ้าคะแนนมากกว่าหรือเท่ากับ 90 จะพิมพ์ข้อความ "Grade A" ถ้าไม่ใช่แต่คะแนนมากกว่าหรือเท่ากับ 80 จะพิมพ์ข้อความ "Grade B" และต่อไปตามลำดับ
+
+//4. การใช้เงื่อนไขซ้อน (Nested Conditions)
+//คุณสามารถใช้เงื่อนไขซ้อนเพื่อเพิ่มความซับซ้อนในการตรวจสอบเงื่อนไขได้
+
+//ตัวอย่าง:
+
+local score = 85
+local attendance = 90
+
+if score >= 80 then
+    if attendance >= 75 then
+        print("You passed with good attendance!")
+    else
+        print("You passed, but your attendance is low.")
+    end
+else
+    print("You failed.")
+end
+
+//ในตัวอย่างนี้ ถ้าคะแนนมากกว่าหรือเท่ากับ 80 จะตรวจสอบเงื่อนไขต่อไปที่การเข้าร่วมเรียน (attendance) ถ้ามากกว่าหรือเท่ากับ 75 จะพิมพ์ข้อความ "You passed with good attendance!" แต่ถ้าต่ำกว่า 75 จะพิมพ์ข้อความ "You passed, but your attendance is low."
+
+//การประยุกต์ใช้งานเงื่อนไขในเกม Roblox
+//ตัวอย่างการใช้เงื่อนไขในการตรวจสอบสถานะของผู้เล่น
+//สมมติว่าเราต้องการตรวจสอบสถานะสุขภาพของผู้เล่นในเกม
+
+
+local player = game.Players.LocalPlayer
+local health = player.Character.Humanoid.Health
+
+if health > 80 then
+    print("You are in great health!")
+elseif health > 50 then
+    print("You are in good health.")
+elseif health > 20 then
+    print("You are in poor health.")
+else
+    print("You are in critical health!")
+end
+
+//ในตัวอย่างนี้ จะตรวจสอบระดับสุขภาพของผู้เล่นและพิมพ์ข้อความที่เหมาะสมตามระดับสุขภาพ
