@@ -1,0 +1,58 @@
+//1. Numeric for Loop
+//Numeric for loop ใช้สำหรับการวนรอบที่จำนวนครั้งที่แน่นอน โดยมีรูปแบบดังนี้:
+
+for variable = start, end, step do
+    -- คำสั่งที่ต้องการให้ทำซ้ำ
+end
+
+//variable คือชื่อตัวแปรที่ใช้ในการวนรอบ
+//start คือค่าที่ตัวแปรเริ่มต้น
+//end คือค่าที่ตัวแปรสิ้นสุด
+//step (ไม่บังคับ) คือจำนวนที่เพิ่มหรือลดในแต่ละรอบ (ค่าเริ่มต้นคือ 1)
+//ตัวอย่าง: การนับจาก 1 ถึง 10
+
+for i = 1, 10 do
+    print(i)
+end
+
+//ตัวอย่าง: การนับถอยหลังจาก 10 ถึง 1
+
+for i = 10, 1, -1 do
+    print(i)
+end
+
+//2. Generic for Loop
+//Generic for loop ใช้สำหรับการวนรอบที่ต้องการเดินทางผ่านตาราง (table) หรือข้อมูลชนิดอื่นที่มีการทำงานซ้ำกัน โดยใช้ฟังก์ชัน iterator
+
+//ตัวอย่าง: การวนรอบผ่านตาราง
+
+local fruits = {"Apple", "Banana", "Cherry"}
+
+for index, fruit in ipairs(fruits) do
+    print(index, fruit)
+end
+
+//ในตัวอย่างนี้, ipairs เป็นฟังก์ชัน iterator ที่ใช้ในการวนรอบผ่านตาราง fruits
+
+//การใช้ลูป for กับเงื่อนไข
+//เราสามารถใช้เงื่อนไขภายในลูป for เพื่อทำการตรวจสอบหรือดำเนินการบางอย่างตามเงื่อนไขนั้นๆ
+
+//ตัวอย่าง: การพิมพ์เลขคู่จาก 1 ถึง 10
+
+for i = 1, 10 do
+    if i % 2 == 0 then
+        print(i .. " is an even number.")
+    end
+end
+
+//ตัวอย่าง: การหาผลรวมของเลขคู่จาก 1 ถึง 10
+
+local sum = 0
+
+for i = 1, 10 do
+    if i % 2 == 0 then
+        sum = sum + i
+    end
+end
+
+print("Sum of even numbers from 1 to 10 is: " .. sum)
