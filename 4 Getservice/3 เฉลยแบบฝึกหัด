@@ -1,0 +1,62 @@
+แบบฝึกหัดที่ 1: เข้าถึงบริการ Players
+คำสั่ง: ใช้ GetService("Players") เพื่อพิมพ์ชื่อของผู้เล่นเมื่อพวกเขาเข้าร่วมเกม
+ขั้นตอน:
+สร้าง Script ใน ServerScriptService
+เขียนโค้ดเพื่อเข้าถึงบริการ Players และพิมพ์ชื่อผู้เล่นเมื่อเข้าร่วมเกม
+ตัวอย่างโค้ด:
+-- Script ใน ServerScriptService
+local players = game:GetService("Players")
+players.PlayerAdded:Connect(function(player)
+    print(player.Name .. " has joined the game.")
+end)
+=====================================================================
+แบบฝึกหัดที่ 2: เข้าถึงบริการ Workspace
+คำสั่ง: ใช้ GetService("Workspace") เพื่อสร้าง Part ใหม่และตั้งชื่อมัน
+ขั้นตอน:
+สร้าง Script ใน ServerScriptService หรือ Workspace
+เขียนโค้ดเพื่อเข้าถึงบริการ Workspace และสร้าง Part ใหม่
+ตัวอย่างโค้ด:
+-- Script ใน ServerScriptService หรือ Workspace
+local workspace = game:GetService("Workspace")
+local part = Instance.new("Part")
+part.Name = "NewPart"
+part.Position = Vector3.new(0, 10, 0)
+part.Parent = workspace
+=====================================================================
+แบบฝึกหัดที่ 3: เข้าถึงบริการ ReplicatedStorage
+คำสั่ง: ใช้ GetService("ReplicatedStorage") เพื่อสร้าง RemoteEvent สำหรับการสื่อสารระหว่าง Client และ Server
+ขั้นตอน:
+สร้าง Script ใน ServerScriptService
+เขียนโค้ดเพื่อเข้าถึงบริการ ReplicatedStorage และสร้าง RemoteEvent
+ตัวอย่างโค้ด:
+-- Script ใน ServerScriptService
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = Instance.new("RemoteEvent")
+remoteEvent.Name = "MyRemoteEvent"
+remoteEvent.Parent = replicatedStorage
+=====================================================================
+แบบฝึกหัดที่ 4: เข้าถึงบริการ Debris
+คำสั่ง: ใช้ GetService("Debris") เพื่อลบ Part ออกจาก Workspace หลังจาก 5 วินาที
+ขั้นตอน:
+สร้าง Script ใน ServerScriptService
+เขียนโค้ดเพื่อเข้าถึงบริการ Debris และลบ Part หลังจาก 5 วินาที
+ตัวอย่างโค้ด:
+-- Script ใน ServerScriptService
+local debris = game:GetService("Debris")
+local part = Instance.new("Part")
+part.Parent = game.Workspace
+debris:AddItem(part, 5) -- ลบ Part ออกจาก Workspace หลังจาก 5 วินาที
+=====================================================================
+แบบฝึกหัดที่ 5: เข้าถึงบริการ UserInputService
+คำสั่ง: ใช้ GetService("UserInputService") เพื่อตรวจจับเมื่อผู้เล่นกดปุ่ม Space bar
+ขั้นตอน:
+สร้าง LocalScript ใน StarterPlayerScripts
+เขียนโค้ดเพื่อเข้าถึงบริการ UserInputService และตรวจจับการกดปุ่ม Space bar
+ตัวอย่างโค้ด:
+-- LocalScript ใน StarterPlayerScripts
+local userInputService = game:GetService("UserInputService")
+userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.Space then
+        print("Space bar was pressed")
+    end
+end)
