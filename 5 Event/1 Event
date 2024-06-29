@@ -1,0 +1,254 @@
+PlayerAdded	เกิดขึ้นเมื่อผู้เล่นเข้าร่วมเกม	players.PlayerAdded:Connect(function(player) ... end)	Script	ServerScriptService
+PlayerRemoving	เกิดขึ้นเมื่อผู้เล่นออกจากเกม	players.PlayerRemoving:Connect(function(player) ... end)	Script	ServerScriptService
+CharacterAdded	เกิดขึ้นเมื่อโมเดลตัวละครของผู้เล่นถูกสร้าง	player.CharacterAdded:Connect(function(character) ... end)	Script	ServerScriptService
+CharacterRemoving	เกิดขึ้นเมื่อโมเดลตัวละครของผู้เล่นถูกลบ	player.CharacterRemoving:Connect(function(character) ... end)	Script	ServerScriptService
+Touched	เกิดขึ้นเมื่อวัตถุถูกสัมผัส	part.Touched:Connect(function(hit) ... end)	Script	Workspace
+TouchEnded	เกิดขึ้นเมื่อวัตถุหยุดถูกสัมผัส	part.TouchEnded:Connect(function(hit) ... end)	Script	Workspace
+ChildAdded	เกิดขึ้นเมื่อมีการเพิ่มลูกใหม่ในวัตถุ	parent.ChildAdded:Connect(function(child) ... end)	Script	ServerScriptService
+ChildRemoved	เกิดขึ้นเมื่อมีการลบลูกจากวัตถุ	parent.ChildRemoved:Connect(function(child) ... end)	Script	ServerScriptService
+Changed	เกิดขึ้นเมื่อคุณสมบัติของวัตถุถูกเปลี่ยน	object.Changed:Connect(function(property) ... end)	Script	ServerScriptService
+Chatted	เกิดขึ้นเมื่อผู้เล่นส่งข้อความในแชท	player.Chatted:Connect(function(message) ... end)	Script	ServerScriptService
+Heartbeat	เกิดขึ้นในแต่ละเฟรม	runService.Heartbeat:Connect(function(deltaTime) ... end)	Script	ServerScriptService
+RenderStepped	เกิดขึ้นในแต่ละเฟรมก่อนการเรนเดอร์	runService.RenderStepped:Connect(function(deltaTime) ... end)	LocalScript	StarterPlayerScripts
+Stepped	เกิดขึ้นในแต่ละเฟรม	runService.Stepped:Connect(function(deltaTime) ... end)	Script	ServerScriptService
+InputBegan	เกิดขึ้นเมื่อการป้อนข้อมูลเริ่มต้น (เช่น การกดปุ่ม)	userInputService.InputBegan:Connect(function(input) ... end)	LocalScript	StarterPlayerScripts
+InputEnded	เกิดขึ้นเมื่อการป้อนข้อมูลสิ้นสุด	userInputService.InputEnded:Connect(function(input) ... end)	LocalScript	StarterPlayerScripts
+Button1Down	เกิดขึ้นเมื่อผู้ใช้คลิกปุ่มเมาส์ซ้าย	userInputService.InputBegan:Connect(function(input) ... end)	LocalScript	StarterPlayerScripts
+Button1Up	เกิดขึ้นเมื่อผู้ใช้ปล่อยปุ่มเมาส์ซ้าย	userInputService.InputEnded:Connect(function(input) ... end)	LocalScript	StarterPlayerScripts
+Clicked	เกิดขึ้นเมื่อผู้ใช้คลิกปุ่ม GUI	button.MouseButton1Click:Connect(function() ... end)	LocalScript	StarterGui
+MouseEnter	เกิดขึ้นเมื่อเมาส์เข้าสู่วัตถุ GUI	guiObject.MouseEnter:Connect(function() ... end)	LocalScript	StarterGui
+MouseLeave	เกิดขึ้นเมื่อเมาส์ออกจากวัตถุ GUI	guiObject.MouseLeave:Connect(function() ... end)	LocalScript	StarterGui
+TouchTap	เกิดขึ้นเมื่อมีการแตะที่หน้าจอ (สำหรับอุปกรณ์ที่รองรับการสัมผัส)	userInputService.TouchTap:Connect(function(touchPositions) ... end)	LocalScript	StarterPlayerScripts
+
+
+1. PlayerAdded
+ใช้เมื่อผู้เล่นเข้าร่วมเกม
+Script: วางใน ServerScriptService
+=================================================
+local players = game:GetService("Players")
+players.PlayerAdded:Connect(function(player)
+    print(player.Name .. " has joined the game.")
+end)
+=================================================
+2. PlayerRemoving
+ใช้เมื่อผู้เล่นออกจากเกม
+Script: วางใน ServerScriptService
+=================================================
+local players = game:GetService("Players")
+players.PlayerRemoving:Connect(function(player)
+    print(player.Name .. " has left the game.")
+end)
+=================================================
+3. CharacterAdded
+ใช้เมื่อโมเดลตัวละครของผู้เล่นถูกสร้าง
+Script: วางใน ServerScriptService
+=================================================
+local players = game:GetService("Players")
+players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        print(player.Name .. "'s character has been added.")
+    end)
+end)
+=================================================
+4. CharacterRemoving
+ใช้เมื่อโมเดลตัวละครของผู้เล่นถูกลบ
+Script: วางใน ServerScriptService
+=================================================
+local players = game:GetService("Players")
+players.PlayerAdded:Connect(function(player)
+    player.CharacterRemoving:Connect(function(character)
+        print(player.Name .. "'s character is being removed.")
+    end)
+end)
+=================================================
+5. Touched
+ใช้เมื่อวัตถุถูกสัมผัส
+Script: วางใน Workspace
+=================================================
+local part = Instance.new("Part")
+part.Parent = game.Workspace
+part.Touched:Connect(function(hit)
+    print("Part was touched by: " .. hit.Name)
+end)
+=================================================
+6. TouchEnded
+ใช้เมื่อวัตถุหยุดถูกสัมผัส
+Script: วางใน Workspace
+=================================================
+local part = Instance.new("Part")
+part.Parent = game.Workspace
+part.TouchEnded:Connect(function(hit)
+    print("Touch ended on part by: " .. hit.Name)
+end)
+=================================================
+7. ChildAdded
+ใช้เมื่อมีการเพิ่มลูกใหม่ในวัตถุ
+Script: วางใน ServerScriptService
+=================================================
+local parent = Instance.new("Model")
+parent.Parent = game.Workspace
+
+parent.ChildAdded:Connect(function(child)
+    print("Child added: " .. child.Name)
+end)
+=================================================
+8. ChildRemoved
+ใช้เมื่อมีการลบลูกจากวัตถุ
+Script: วางใน ServerScriptService
+=================================================
+local parent = Instance.new("Model")
+parent.Parent = game.Workspace
+
+parent.ChildRemoved:Connect(function(child)
+    print("Child removed: " .. child.Name)
+end)
+=================================================
+9. Changed
+ใช้เมื่อคุณสมบัติของวัตถุถูกเปลี่ยน
+Script: วางใน ServerScriptService
+=================================================
+local part = Instance.new("Part")
+part.Parent = game.Workspace
+
+part.Changed:Connect(function(property)
+    print("Property changed: " .. property)
+end)
+=================================================
+10. Chatted
+ใช้เมื่อผู้เล่นส่งข้อความในแชท
+Script: วางใน ServerScriptService
+=================================================
+local players = game:GetService("Players")
+players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        print(player.Name .. " said: " .. message)
+    end)
+end)
+=================================================
+11. Heartbeat
+ใช้ในแต่ละเฟรม
+Script: วางใน ServerScriptService
+=================================================
+local runService = game:GetService("RunService")
+runService.Heartbeat:Connect(function(deltaTime)
+    print("Heartbeat: " .. deltaTime)
+end)
+=================================================
+12. RenderStepped
+ใช้ในแต่ละเฟรมก่อนการเรนเดอร์
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local runService = game:GetService("RunService")
+runService.RenderStepped:Connect(function(deltaTime)
+    print("RenderStepped: " .. deltaTime)
+end)
+=================================================
+13. Stepped
+ใช้ในแต่ละเฟรม
+Script: วางใน ServerScriptService
+=================================================
+local runService = game:GetService("RunService")
+runService.Stepped:Connect(function(deltaTime)
+    print("Stepped: " .. deltaTime)
+end)
+=================================================
+14. InputBegan
+ใช้เมื่อการป้อนข้อมูลเริ่มต้น (เช่น การกดปุ่ม)
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local userInputService = game:GetService("UserInputService")
+userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.Space then
+        print("Space bar was pressed")
+    end)
+end)
+=================================================
+15. InputEnded
+ใช้เมื่อการป้อนข้อมูลสิ้นสุด
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local userInputService = game:GetService("UserInputService")
+userInputService.InputEnded:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.Space then
+        print("Space bar was released")
+    end)
+end)
+=================================================
+16. Button1Down
+ใช้เมื่อผู้ใช้คลิกปุ่มเมาส์ซ้าย
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local userInputService = game:GetService("UserInputService")
+userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        print("Left mouse button was pressed")
+    end)
+end)
+=================================================
+17. Button1Up
+ใช้เมื่อผู้ใช้ปล่อยปุ่มเมาส์ซ้าย
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local userInputService = game:GetService("UserInputService")
+userInputService.InputEnded:Connect(function(input, gameProcessedEvent)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        print("Left mouse button was released")
+    end)
+end)
+=================================================
+18. Clicked
+ใช้เมื่อผู้ใช้คลิกปุ่ม GUI
+LocalScript: วางใน StarterGui
+=================================================
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Click Me"
+textButton.Size = UDim2.new(0, 200, 0, 50)
+textButton.Parent = screenGui
+
+textButton.MouseButton1Click:Connect(function()
+    print("Button was clicked")
+end)
+=================================================
+19. MouseEnter
+ใช้เมื่อเมาส์เข้าสู่วัตถุ GUI
+LocalScript: วางใน StarterGui
+=================================================
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "Hover over me!"
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Parent = screenGui
+
+textLabel.MouseEnter:Connect(function()
+    print("Mouse entered the label")
+end)
+=================================================
+20. MouseLeave
+ใช้เมื่อเมาส์ออกจากวัตถุ GUI
+LocalScript: วางใน StarterGui
+=================================================
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "Hover over me!"
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Parent = screenGui
+
+textLabel.MouseLeave:Connect(function()
+    print("Mouse left the label")
+end)
+=================================================
+21. TouchTap
+ใช้เมื่อมีการแตะที่หน้าจอ (สำหรับอุปกรณ์ที่รองรับการสัมผัส)
+LocalScript: วางใน StarterPlayerScripts
+=================================================
+local userInputService = game:GetService("UserInputService")
+userInputService.TouchTap:Connect(function(touchPositions)
+    print("Screen was tapped at: " .. tostring(touchPositions[1]))
+end)
