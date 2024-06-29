@@ -45,6 +45,7 @@ local serverStorage = game:GetService("ServerStorage")
 local tool = Instance.new("Tool")
 tool.Name = "MyTool"
 tool.Parent = serverStorage
+
 5. game:GetService("Teams")
 ใช้ในการจัดการทีมของผู้เล่น
 -- Script ใน ServerScriptService
@@ -67,6 +68,7 @@ local debris = game:GetService("Debris")
 local part = Instance.new("Part")
 part.Parent = game.Workspace
 debris:AddItem(part, 5) -- ลบ Part ออกจาก Workspace หลังจาก 5 วินาที
+
 8. game:GetService("TweenService")
 ใช้ในการสร้างและจัดการอนิเมชัน Tween
 -- Script ใน ServerScriptService
